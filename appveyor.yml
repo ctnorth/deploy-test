@@ -60,11 +60,11 @@ build:
 #---------------------------------#
 #      Artifacts configuration    #
 #---------------------------------#
-#artifacts:
-  #- path: out\ClTest.exe
-    #name: ClTest.exe
-  #- path: out\ClTest.pdb
-    #name: ClTest.pdb
+artifacts:
+  - path: out\ClTest.exe
+    name: ClTest.exe
+  - path: out\ClTest.pdb
+    name: ClTest.pdb
 
 #---------------------------------#
 #     Deployment configuration    #
