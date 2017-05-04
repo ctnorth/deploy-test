@@ -61,40 +61,37 @@ build:
 #      Artifacts configuration    #
 #---------------------------------#
 #artifacts:
-  #- path: Out\CTNorthSetup.exe
-    #name: CTNorthSetup.exe
-  #- path: Out\CTNorthStandaloneSetup.exe
-    #name: CTNorthStandaloneSetup.exe
-  #- path: Out\CTNorth-windows.zip
-    #name: CTNorth-windows.zip
-  #- path: Out\CTNorth-windows.7z
-    #name: CTNorth-windows.7z
-  #- path: Out\CTNorth-windows-symbols.zip
-    #name: CTNorth-windows-symbols.zip
-  #- path: Out\CTNorth-windows-symbols.7z
-    #name: CTNorth-windows-symbols.7z
-  #- path: Out\RELEASES
-    #name: RELEASES
-  #- path: Out\CTNorth-*-Delta.pkg
-    #name: CTNorth-Delta.pkg
-  #- path: Out\CTNorth-*-Full.pkg
-    #name: CTNorth-Full.pkg
+  #- path: out\ClTest.exe
+    #name: ClTest.exe
+  #- path: out\ClTest.pdb
+    #name: ClTest.pdb
 
 #---------------------------------#
 #     Deployment configuration    #
 #---------------------------------#
-#deploy:
-  #release: v$(appveyor_build_version)
-  #description: 'Release description'
-  #provider: GitHub
-  #auth_token:
-    #secure: 4AFmmvGx92DlQ3DTqXvqBrkTQLynrgNggKRaOo1Y2Fk5x7zAj8bw0MSbpRGqSClV
-  #artifact: CTNorthSetup.exe, CTNorthStandaloneSetup.exe, CTNorth-windows.zip, CTNorth-windows.7z
-  #draft: false
-  #prerelease: false
-  #on:
-    #branch: master
-    #appveyor_repo_tag: true
+deploy:
+  - provider: GitHub
+    release: v$(appveyor_build_version)
+    description: 'Release description'
+    auth_token:
+      secure: 4AFmmvGx92DlQ3DTqXvqBrkTQLynrgNggKRaOo1Y2Fk5x7zAj8bw0MSbpRGqSClV
+    artifact: ClTest.exe, ClTest.pdb
+    draft: false
+    prerelease: false
+    on:
+      branch: master
+      appveyor_repo_tag: true
+  - provider: GitHub
+    release: v$(appveyor_build_version)
+    description: 'Release description'
+    auth_token:
+      secure: 4AFmmvGx92DlQ3DTqXvqBrkTQLynrgNggKRaOo1Y2Fk5x7zAj8bw0MSbpRGqSClV
+    artifact: ClTest.exe, ClTest.pdb
+    draft: true
+    prerelease: false
+    on:
+      branch: master
+      appveyor_repo_tag: false
 
 #---------------------------------#
 #         Notifications           #

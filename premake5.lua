@@ -1,6 +1,7 @@
 workspace "DepTest"
     location "build"
     configurations { "Debug", "Release" }
+    targetdir "out"
     
     flags { "StaticRuntime" }
     targetprefix ""
